@@ -45,5 +45,46 @@ public class Habitacion implements Serializable {
 	public Habitacion() {
 		super();
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Integer getNumeroHabitacion() {
+		return numeroHabitacion;
+	}
+
+	public void setNumeroHabitacion(Integer numeroHabitacion) {
+		this.numeroHabitacion = numeroHabitacion;
+	}
+
+	public Boolean getHabitacionOcupada() {
+		return habitacionOcupada;
+	}
+
+	public void setHabitacionOcupada(Boolean habitacionOcupada) {
+		this.habitacionOcupada = habitacionOcupada;
+	}
+
+	public TipoHabitacion getTipoHabitacion() {
+		return tipoHabitacion;
+	}
+
+	public void setTipoHabitacion(TipoHabitacion tipoHabitacion) {
+		this.tipoHabitacion = tipoHabitacion;
+	}
+
+	public List<Reserva> getListaReservas() {
+		return listaReservas;
+	}
+
+	public void setListaReservas(List<Reserva> listaReservas) {
+		this.listaReservas = listaReservas;
+	}
    
+	
 }

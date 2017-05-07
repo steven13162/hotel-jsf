@@ -27,5 +27,30 @@ public abstract class TipoHabitacion implements Serializable {
 	public TipoHabitacion() {
 		super();
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public TipoHabitacionEnum getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(TipoHabitacionEnum tipo) {
+		this.tipo = tipo;
+	}
+
+	public BigDecimal getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(BigDecimal precio) {
+		this.precio = precio;
+	}
    
+	
 }

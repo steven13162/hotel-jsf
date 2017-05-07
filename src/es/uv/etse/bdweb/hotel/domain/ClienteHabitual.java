@@ -10,6 +10,7 @@ import javax.persistence.*;
 @Entity
 @Table(name="clientes_habituales")
 @DiscriminatorValue("cliente_habitual")
+
 public class ClienteHabitual extends Cliente implements Serializable {
 
 	private static final long serialVersionUID = 1L;
