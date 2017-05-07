@@ -9,3 +9,5 @@ MySQL database:
 + nombre: bdweb_hotel
 + user: isaw
 + password: isaw
+
+![modelo lógico de base da datos](https://raw.githubusercontent.com/lytves/hotel/master/datebase/modelo_logico_hotel.png)
