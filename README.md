@@ -12,5 +12,6 @@ It is necessary to create a connection pool "datasource" on the server to connec
 * datasource JNDI name: ***java:jboss/datasources/BdwebDS***
 * MySQL database nombre: ***bdweb_hotel***
 
-<center>Logical model of data base:</center>
+<center>Logical model of database:</center>
+
 ![modelo lógico de base da datos](https://raw.githubusercontent.com/lytves/hotel/master/datebase/modelo_logico_hotel.png)
