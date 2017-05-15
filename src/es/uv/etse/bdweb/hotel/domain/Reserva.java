@@ -27,6 +27,13 @@ public class Reserva implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
+	public enum TYPEReserva {
+		ACTIVA,
+		CERRADA,
+		CANCELADA,
+		PROGRESO;
+	}
+	
 	@Id @Column(name="res_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
@@ -40,7 +47,7 @@ public class Reserva implements Serializable {
 	private LocalDate fechaFinal;
 	
 	@Column(name="res_estado")
-	private EstadoReservaEnum estado;
+	private TYPEReserva estado;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="habitaciones_hab_id", nullable = false)
@@ -82,11 +89,11 @@ public class Reserva implements Serializable {
 		this.fechaFinal = fechaFinal;
 	}
 
-	public EstadoReservaEnum getEstado() {
+	public TYPEReserva getEstado() {
 		return estado;
 	}
 
-	public void setEstado(EstadoReservaEnum estado) {
+	public void setEstado(TYPEReserva estado) {
 		this.estado = estado;
 	}
 

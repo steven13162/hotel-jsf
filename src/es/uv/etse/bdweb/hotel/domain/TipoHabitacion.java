@@ -14,12 +14,18 @@ import javax.persistence.*;
 public abstract class TipoHabitacion implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	
+	public enum TYPEHabitacion {
+		INDIVIDUAL,
+		DOBLE,
+		MATRIMONIAL;
+	}
 
 	@Id @Column(name="tip_hab_id")
 	private Long id;
 	
 	@Column(name="tip_hab_tipo")
-	private TipoHabitacionEnum tipo;
+	private TYPEHabitacion tipo;
 	
 	@Column(name="tip_hab_precio")
 	private BigDecimal precio;
@@ -36,11 +42,11 @@ public abstract class TipoHabitacion implements Serializable {
 		this.id = id;
 	}
 
-	public TipoHabitacionEnum getTipo() {
+	public TYPEHabitacion getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(TipoHabitacionEnum tipo) {
+	public void setTipo(TYPEHabitacion tipo) {
 		this.tipo = tipo;
 	}
 

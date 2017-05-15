@@ -10,7 +10,7 @@ Java EE application server: **WildFly 10.1**
 It is necessary to create a connection pool "datasource" on the server to connect to the database and import the base to your MySQL server:
 
 * datasource JNDI name: ***java:jboss/datasources/BdwebDS***
-* MySQL database nombre: ***bdweb_hotel***
+* MySQL database name: ***bdweb_hotel***
 
 <center>Logical model of database:</center>
 
