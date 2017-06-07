@@ -6,6 +6,8 @@ import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -37,6 +39,7 @@ public class Reserva implements Serializable {
 	@Column(name = "res_fecha_final")
 	private LocalDate fechaFinal;
 	
+	@Enumerated(EnumType.STRING)
 	@Column(name="res_estado")
 	private ReservaType estado;
 	
