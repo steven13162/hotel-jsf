@@ -14,8 +14,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import es.uv.etse.bdweb.hotel.services.LocalDateAttributeConverter;
-
 /**
  * Entity implementation class for Entity: Reserva
  *
@@ -26,13 +24,6 @@ import es.uv.etse.bdweb.hotel.services.LocalDateAttributeConverter;
 public class Reserva implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	
-	public enum TYPEReserva {
-		ACTIVA,
-		CERRADA,
-		CANCELADA,
-		PROGRESO;
-	}
 	
 	@Id @Column(name="res_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -47,7 +38,7 @@ public class Reserva implements Serializable {
 	private LocalDate fechaFinal;
 	
 	@Column(name="res_estado")
-	private TYPEReserva estado;
+	private ReservaType estado;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="habitaciones_hab_id", nullable = false)
@@ -89,11 +80,11 @@ public class Reserva implements Serializable {
 		this.fechaFinal = fechaFinal;
 	}
 
-	public TYPEReserva getEstado() {
+	public ReservaType getEstado() {
 		return estado;
 	}
 
-	public void setEstado(TYPEReserva estado) {
+	public void setEstado(ReservaType estado) {
 		this.estado = estado;
 	}
 
