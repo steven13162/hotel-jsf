@@ -11,21 +11,17 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="tipos_habitaciones")
-public abstract class TipoHabitacion implements Serializable {
+public class TipoHabitacion implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
-	public enum TYPEHabitacion {
-		INDIVIDUAL,
-		DOBLE,
-		MATRIMONIAL;
-	}
 
 	@Id @Column(name="tip_hab_id")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
+	@Enumerated(EnumType.STRING)
 	@Column(name="tip_hab_tipo")
-	private TYPEHabitacion tipo;
+	private RoomType tipo;
 	
 	@Column(name="tip_hab_precio")
 	private BigDecimal precio;
@@ -42,11 +38,11 @@ public abstract class TipoHabitacion implements Serializable {
 		this.id = id;
 	}
 
-	public TYPEHabitacion getTipo() {
+	public RoomType getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(TYPEHabitacion tipo) {
+	public void setTipo(RoomType tipo) {
 		this.tipo = tipo;
 	}
 
