@@ -34,7 +34,7 @@ CREATE TABLE `clientes` (
   `cli_numero_tarjeta` varchar(16) NOT NULL,
   `cli_tipo` varchar(7) NOT NULL DEFAULT 'cliente',
   PRIMARY KEY (`cli_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,7 +69,7 @@ CREATE TABLE `habitaciones` (
   PRIMARY KEY (`hab_id`,`tipos_habitaciones_tip_hab_id`),
   KEY `fk_habitaciones_tipos_habitaciones2_idx` (`tipos_habitaciones_tip_hab_id`),
   CONSTRAINT `fk_habitaciones_tipos_habitaciones2` FOREIGN KEY (`tipos_habitaciones_tip_hab_id`) REFERENCES `tipos_habitaciones` (`tip_hab_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -89,7 +89,7 @@ CREATE TABLE `promociones` (
   PRIMARY KEY (`prom_id`,`tipos_habitaciones_tip_hab_id`),
   KEY `fk_promociones_tipos_habitaciones2_idx` (`tipos_habitaciones_tip_hab_id`),
   CONSTRAINT `fk_promociones_tipos_habitaciones2` FOREIGN KEY (`tipos_habitaciones_tip_hab_id`) REFERENCES `tipos_habitaciones` (`tip_hab_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -116,7 +116,7 @@ CREATE TABLE `reservas` (
   CONSTRAINT `fk_reservas_clientes1` FOREIGN KEY (`clientes_cli_id`) REFERENCES `clientes` (`cli_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_reservas_habitaciones1` FOREIGN KEY (`habitaciones_hab_id`) REFERENCES `habitaciones` (`hab_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_reservas_promociones1` FOREIGN KEY (`promociones_prom_id`) REFERENCES `promociones` (`prom_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -131,7 +131,7 @@ CREATE TABLE `tipos_habitaciones` (
   `tip_hab_tipo` enum('INDIVIDUAL','DOBLE','MATRIMONIAL') NOT NULL,
   `tip_hab_precio` decimal(9,2) NOT NULL,
   PRIMARY KEY (`tip_hab_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
