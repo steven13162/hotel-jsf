@@ -1,0 +1,686 @@
+{
+	"tipos_habitaciones":
+	[
+		{
+			"tip_hab_tipo": "INDIVIDUAL",
+			"tip_hab_precio" : "75.0"
+		},
+		{
+			"tip_hab_tipo": "DOBLE",
+			"tip_hab_precio" : "90.0"
+		},
+		{
+			"tip_hab_tipo": "MATRIMONIAL",
+			"tip_hab_precio" : "100.0"
+		}
+	],
+	"habitaciones":
+	[
+		{
+			"hab_numero": "101",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "102",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "103",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "104",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "105",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "106",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "107",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "108",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "109",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "110",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "111",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "112",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "113",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "114",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "115",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		},
+		{
+			"hab_numero": "116",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		},
+		{
+			"hab_numero": "117",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		},
+		{
+			"hab_numero": "118",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		},
+		{
+			"hab_numero": "119",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		},
+		{
+			"hab_numero": "120",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		},
+		{
+			"hab_numero": "121",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		},
+		{
+			"hab_numero": "201",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "202",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "203",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "204",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "205",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "206",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "207",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "208",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "209",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "210",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "211",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "212",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "213",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "214",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "215",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		},
+		{
+			"hab_numero": "216",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		},
+		{
+			"hab_numero": "217",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		},
+		{
+			"hab_numero": "218",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		},
+		{
+			"hab_numero": "219",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		},
+		{
+			"hab_numero": "220",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		},
+		{
+			"hab_numero": "221",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		},
+		{
+			"hab_numero": "301",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "302",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "303",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "304",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "305",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "306",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "307",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "308",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "309",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "310",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "311",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "312",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "313",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "314",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "315",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		},
+		{
+			"hab_numero": "316",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		},
+		{
+			"hab_numero": "317",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		},
+		{
+			"hab_numero": "318",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		},
+		{
+			"hab_numero": "319",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		},
+		{
+			"hab_numero": "320",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		},
+		{
+			"hab_numero": "321",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		},
+		{
+			"hab_numero": "401",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "402",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "403",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "404",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "405",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "406",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "407",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "408",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "409",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "410",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "411",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "412",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "413",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "414",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "415",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		},
+		{
+			"hab_numero": "416",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		},
+		{
+			"hab_numero": "417",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		},
+		{
+			"hab_numero": "418",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		},
+		{
+			"hab_numero": "419",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		},
+		{
+			"hab_numero": "420",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		},
+		{
+			"hab_numero": "421",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		},
+		{
+			"hab_numero": "501",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "502",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "503",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "504",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "505",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "506",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "507",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "1"
+		},
+		{
+			"hab_numero": "508",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "509",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "510",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "511",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "512",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "513",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "514",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
+			"hab_numero": "515",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		},
+		{
+			"hab_numero": "516",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		},
+		{
+			"hab_numero": "517",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		},
+		{
+			"hab_numero": "518",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		},
+		{
+			"hab_numero": "519",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		},
+		{
+			"hab_numero": "520",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		},
+		{
+			"hab_numero": "521",
+			"hab_ocupada" : "0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		}
+	],
+	"promociones":
+	[
+		{
+			"prom_fecha_inicio": "2017-07-14",
+			"prom_fecha_final" : "2017-07-16",
+			"prom_descripcion" : "Es la primera promoción en nuestro Hotel ISAW",
+			"prom_precio" : "200.0",
+			"tipos_habitaciones_tip_hab_id" : "3"
+		}
+	],
+	"clientes":
+	[
+		{
+			"cli_id": "1",
+			"cli_nombre": "Fernando",
+			"cli_apellidos" : "Martínez",
+			"cli_password" : "3627909A29C31381A071EC27F7C9CA97726182AED29A7DDD2E54353322CFB30ABB9E3A6DF2AC2C20FE23436311D678564D0C8D305930575F60E2D3D048184D79",
+			"cli_direccion" : "Valencia, Av. del Cid",
+			"cli_dni" : "12345678A",
+			"cli_email" : "fernando@gmail.com",
+			"cli_numero_movil" : "555555555",
+			"cli_numero_tarjeta" : "1234123412341234"
+		},
+		{
+			"cli_id": "2",
+			"cli_nombre": "Benito",
+			"cli_apellidos" : "Alarcón",
+			"cli_password" : "3627909A29C31381A071EC27F7C9CA97726182AED29A7DDD2E54353322CFB30ABB9E3A6DF2AC2C20FE23436311D678564D0C8D305930575F60E2D3D048184D79",
+			"cli_direccion" : "Valencia, Av. del Primer de Maig",
+			"cli_dni" : "12345678B",
+			"cli_email" : "benito@gmail.com",
+			"cli_numero_movil" : "555555555",
+			"cli_numero_tarjeta" : "1234123412341234"
+		},
+		{
+			"cli_id": "3",
+			"cli_nombre": "Agustín",
+			"cli_apellidos" : "Mastache",
+			"cli_password" : "3627909A29C31381A071EC27F7C9CA97726182AED29A7DDD2E54353322CFB30ABB9E3A6DF2AC2C20FE23436311D678564D0C8D305930575F60E2D3D048184D79",
+			"cli_direccion" : "Valencia, Calle Pintor Benedito",
+			"cli_dni" : "12345678C",
+			"cli_email" : "agustin@gmail.com",
+			"cli_numero_movil" : "555555555",
+			"cli_numero_tarjeta" : "1234123412341234"
+		},
+		{
+			"cli_id": "4",
+			"cli_nombre": "Lucho",
+			"cli_apellidos" : "García",
+			"cli_password" : "3627909A29C31381A071EC27F7C9CA97726182AED29A7DDD2E54353322CFB30ABB9E3A6DF2AC2C20FE23436311D678564D0C8D305930575F60E2D3D048184D79",
+			"cli_direccion" : "Valencia, Carrer de Ruaya",
+			"cli_dni" : "12345678D",
+			"cli_email" : "lucho@gmail.com",
+			"cli_numero_movil" : "555555555",
+			"cli_numero_tarjeta" : "1234123412341234"
+		},
+		{
+			"cli_id": "5",
+			"cli_nombre": "Macos",
+			"cli_apellidos" : "Noboa",
+			"cli_password" : "3627909A29C31381A071EC27F7C9CA97726182AED29A7DDD2E54353322CFB30ABB9E3A6DF2AC2C20FE23436311D678564D0C8D305930575F60E2D3D048184D79",
+			"cli_direccion" : "Valencia, Av. del Primat Reig",
+			"cli_dni" : "12345678E",
+			"cli_email" : "macos@gmail.com",
+			"cli_numero_movil" : "555555555",
+			"cli_numero_tarjeta" : "1234123412341234"
+		}
+	],
+	"clientes_habituales":
+	[
+		{
+			"cli_id": "3",
+			"cli_descuento": "5",
+			"cli_newsletter": "0"
+		},
+		{
+			"cli_id": "4",
+			"cli_descuento": "7",
+			"cli_newsletter": "1"
+		}
+	],
+	"reservas":
+	[
+		{
+			"res_fecha_inicio": "2017-05-01",
+			"res_fecha_final" : "2017-05-05",
+			"res_estado" : "CERRADA",
+			"res_importe": "200.0",
+			"habitaciones_hab_id": "1",
+			"clientes_cli_id": "1",
+			"promociones_prom_id": "1"
+		},
+		{
+			"res_fecha_inicio": "2017-05-06",
+			"res_fecha_final" : "2017-05-11",
+			"res_estado" : "CERRADA",
+			"res_importe": "220.0",
+			"habitaciones_hab_id": "20",
+			"clientes_cli_id": "2"
+		},
+		{
+			"res_fecha_inicio": "2017-05-10",
+			"res_fecha_final" : "2017-05-20",
+			"res_estado" : "CERRADA",
+			"res_importe": "100.0",
+			"habitaciones_hab_id": "62",
+			"clientes_cli_id": "3"
+		},
+		{
+			"res_fecha_inicio": "2017-05-12",
+			"res_fecha_final" : "2017-05-14",
+			"res_estado" : "CERRADA",
+			"res_importe": "300.0",
+			"habitaciones_hab_id": "31",
+			"clientes_cli_id": "4"
+		},
+		{
+			"res_fecha_inicio": "2017-05-15",
+			"res_fecha_final" : "2017-05-22",
+			"res_estado" : "CERRADA",
+			"res_importe": "200.0",
+			"habitaciones_hab_id": "75",
+			"clientes_cli_id": "5"
+		},
+		{
+			"res_fecha_inicio": "2017-07-12",
+			"res_fecha_final" : "2017-07-19",
+			"res_estado" : "ACTIVA",
+			"res_importe": "400.0",
+			"habitaciones_hab_id": "77",
+			"clientes_cli_id": "1"
+		},
+		{
+			"res_fecha_inicio": "2017-07-15",
+			"res_fecha_final" : "2017-07-22",
+			"res_estado" : "ACTIVA",
+			"res_importe": "330.0",
+			"habitaciones_hab_id": "100",
+			"clientes_cli_id": "5"
+		}
+	]
+}
