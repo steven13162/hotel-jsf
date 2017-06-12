@@ -558,7 +558,6 @@
 			"cli_id": "1",
 			"cli_nombre": "Fernando",
 			"cli_apellidos" : "Martínez",
-			//pass: 12345
 			"cli_password" : "a8e63c27e6f7f57104773b2765e2de02851f216657235ce7b264f13978f3f3cd4ee2e4cf10d7c7643222e7551e6c6b2da0656dcf97b22dfc04b4c19046843501",
 			"cli_direccion" : "Valencia, Av. del Cid",
 			"cli_dni" : "12345678A",
@@ -570,7 +569,6 @@
 			"cli_id": "2",
 			"cli_nombre": "Benito",
 			"cli_apellidos" : "Alarcón",
-			//pass: 12345
 			"cli_password" : "a8e63c27e6f7f57104773b2765e2de02851f216657235ce7b264f13978f3f3cd4ee2e4cf10d7c7643222e7551e6c6b2da0656dcf97b22dfc04b4c19046843501",
 			"cli_direccion" : "Valencia, Av. del Primer de Maig",
 			"cli_dni" : "12345678B",
@@ -582,7 +580,6 @@
 			"cli_id": "3",
 			"cli_nombre": "Agustín",
 			"cli_apellidos" : "Mastache",
-			//pass: 12345
 			"cli_password" : "a8e63c27e6f7f57104773b2765e2de02851f216657235ce7b264f13978f3f3cd4ee2e4cf10d7c7643222e7551e6c6b2da0656dcf97b22dfc04b4c19046843501",
 			"cli_direccion" : "Valencia, Calle Pintor Benedito",
 			"cli_dni" : "12345678C",
@@ -594,7 +591,6 @@
 			"cli_id": "4",
 			"cli_nombre": "Lucho",
 			"cli_apellidos" : "García",
-			//pass: 12345
 			"cli_password" : "a8e63c27e6f7f57104773b2765e2de02851f216657235ce7b264f13978f3f3cd4ee2e4cf10d7c7643222e7551e6c6b2da0656dcf97b22dfc04b4c19046843501",
 			"cli_direccion" : "Valencia, Carrer de Ruaya",
 			"cli_dni" : "12345678D",
@@ -606,7 +602,6 @@
 			"cli_id": "5",
 			"cli_nombre": "Macos",
 			"cli_apellidos" : "Noboa",
-			//pass: 12345
 			"cli_password" : "a8e63c27e6f7f57104773b2765e2de02851f216657235ce7b264f13978f3f3cd4ee2e4cf10d7c7643222e7551e6c6b2da0656dcf97b22dfc04b4c19046843501",
 			"cli_direccion" : "Valencia, Av. del Primat Reig",
 			"cli_dni" : "12345678E",
