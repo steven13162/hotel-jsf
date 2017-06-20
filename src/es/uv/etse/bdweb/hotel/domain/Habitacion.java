@@ -3,6 +3,7 @@ package es.uv.etse.bdweb.hotel.domain;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -20,7 +21,6 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="habitaciones")
-
 public class Habitacion implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -35,7 +35,7 @@ public class Habitacion implements Serializable {
 	@Column(name="hab_ocupada")
 	private Boolean habitacionOcupada;
 	
-	@ManyToOne(fetch=FetchType.EAGER)
+	@ManyToOne(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name="tipos_habitaciones_tip_hab_id", nullable = false)
 	private TipoHabitacion tipoHabitacion;
 	
@@ -86,5 +86,10 @@ public class Habitacion implements Serializable {
 		this.listaReservas = listaReservas;
 	}
    
+	@Override
+	public String toString(){
+		return "Habitacion: id:"+ id + ", numeroHabitacion:" + numeroHabitacion
+				+ ", habitacionOcupada:" + habitacionOcupada + ", tipoHabitacion:" + tipoHabitacion;
+	}
 	
 }

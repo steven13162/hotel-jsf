@@ -22,8 +22,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name="clientes")
 @Inheritance(strategy=InheritanceType.JOINED)
-@DiscriminatorColumn(name = "cli_tipo")
-@DiscriminatorValue("cliente")
+//@DiscriminatorColumn(name = "cli_tipo")
+//@DiscriminatorValue("cliente")
 public class Cliente implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -55,6 +55,9 @@ public class Cliente implements Serializable {
 	
 	@Column(name="cli_numero_tarjeta")
 	private String numeroTarjeta;
+	
+//	@Column(name="cli_tipo", insertable = false, updatable = false)
+//	private String tipoCliente = "cliente";
 	
 	@OneToMany(mappedBy="cliente")
 	private List<Reserva> listReservas;
@@ -142,7 +145,28 @@ public class Cliente implements Serializable {
 	public void setListReservas(List<Reserva> listReservas) {
 		this.listReservas = listReservas;
 	}
+//
+//	public String getTipoCliente() {
+//		return tipoCliente;
+//	}
+//
+//	public void setTipoCliente(String tipoCliente) {
+//		this.tipoCliente = tipoCliente;
+//	}
 	
-	
+//	@Override
+//	public String toString(){
+//		return "Cliente: id:"+ id + ", nombre:" + nombre + ", apellidos:" + apellidos
+//				+ ", direccion:" + direccion + ", dni:" + dni + ", email:" + email
+//				+ ", numeroMovil:" + numeroMovil + ", numeroTarjeta" + numeroTarjeta
+//				+ ", password" + password + ", tipoCliente" + tipoCliente;
+		
+		@Override
+		public String toString(){
+			return "Cliente: id:"+ id + ", nombre:" + nombre + ", apellidos:" + apellidos
+					+ ", direccion:" + direccion + ", dni:" + dni + ", email:" + email
+					+ ", numeroMovil:" + numeroMovil + ", numeroTarjeta" + numeroTarjeta
+					+ ", password" + password;
+	}
    
 }

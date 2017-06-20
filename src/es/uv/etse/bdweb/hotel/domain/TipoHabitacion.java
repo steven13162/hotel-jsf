@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 
 import javax.persistence.*;
 
+import es.uv.etse.bdweb.hotel.common.RoomType;
+
 /**
  * Entity implementation class for Entity: TipoHabitacion
  *
@@ -17,7 +19,7 @@ public class TipoHabitacion implements Serializable {
 
 	@Id @Column(name="tip_hab_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	
 	@Enumerated(EnumType.STRING)
 	@Column(name="tip_hab_tipo")
@@ -30,11 +32,11 @@ public class TipoHabitacion implements Serializable {
 		super();
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
