@@ -545,9 +545,16 @@
 	"promociones":
 	[
 		{
+			"prom_fecha_inicio": "2017-06-01",
+			"prom_fecha_final" : "2017-06-05",
+			"prom_descripcion" : "Es la primera promoción en el Hotel ISAW. Ya está inactiva",
+			"prom_precio" : "250.0",
+			"tipos_habitaciones_tip_hab_id" : "2"
+		},
+		{
 			"prom_fecha_inicio": "2017-07-14",
 			"prom_fecha_final" : "2017-07-16",
-			"prom_descripcion" : "Es la primera promoción en nuestro Hotel ISAW",
+			"prom_descripcion" : "Es la segunda promoción en nuestro Hotel ISAW",
 			"prom_precio" : "200.0",
 			"tipos_habitaciones_tip_hab_id" : "3"
 		}
@@ -630,6 +637,7 @@
 			"res_fecha_final" : "2017-05-05",
 			"res_estado" : "CERRADA",
 			"res_importe": "200.0",
+			"res_cobrada": "1",
 			"habitaciones_hab_id": "1",
 			"clientes_cli_id": "1",
 			"promociones_prom_id": "1"
@@ -639,6 +647,7 @@
 			"res_fecha_final" : "2017-05-11",
 			"res_estado" : "CERRADA",
 			"res_importe": "220.0",
+			"res_cobrada": "1",
 			"habitaciones_hab_id": "20",
 			"clientes_cli_id": "2"
 		},
@@ -647,6 +656,7 @@
 			"res_fecha_final" : "2017-05-20",
 			"res_estado" : "CERRADA",
 			"res_importe": "100.0",
+			"res_cobrada": "1",
 			"habitaciones_hab_id": "62",
 			"clientes_cli_id": "3"
 		},
@@ -655,6 +665,7 @@
 			"res_fecha_final" : "2017-05-14",
 			"res_estado" : "CERRADA",
 			"res_importe": "300.0",
+			"res_cobrada": "1",
 			"habitaciones_hab_id": "31",
 			"clientes_cli_id": "4"
 		},
@@ -663,6 +674,7 @@
 			"res_fecha_final" : "2017-05-22",
 			"res_estado" : "CERRADA",
 			"res_importe": "200.0",
+			"res_cobrada": "1",
 			"habitaciones_hab_id": "75",
 			"clientes_cli_id": "5"
 		},
@@ -670,6 +682,7 @@
 			"res_fecha_inicio": "2017-07-12",
 			"res_fecha_final" : "2017-07-19",
 			"res_estado" : "ACTIVA",
+			"res_cobrada": "0",
 			"res_importe": "400.0",
 			"habitaciones_hab_id": "77",
 			"clientes_cli_id": "1"
@@ -679,6 +692,7 @@
 			"res_fecha_final" : "2017-07-22",
 			"res_estado" : "ACTIVA",
 			"res_importe": "330.0",
+			"res_cobrada": "0",
 			"habitaciones_hab_id": "100",
 			"clientes_cli_id": "5"
 		}
