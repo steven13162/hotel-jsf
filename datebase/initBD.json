@@ -696,5 +696,15 @@
 			"habitaciones_hab_id": "100",
 			"clientes_cli_id": "5"
 		}
+	],
+		"recepcionistas":
+	[
+		{
+			"recep_id": "1",
+			"recep_nombre": "Rodrigo",
+			"recep_apellidos": "Gimenez",
+			"recep_password": "a8e63c27e6f7f57104773b2765e2de02851f216657235ce7b264f13978f3f3cd4ee2e4cf10d7c7643222e7551e6c6b2da0656dcf97b22dfc04b4c19046843501",
+			"recep_email": "isaw@uv.es"
+		}
 	]
 }
