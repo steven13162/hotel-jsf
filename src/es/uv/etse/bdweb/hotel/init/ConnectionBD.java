@@ -16,9 +16,9 @@ public class ConnectionBD {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			System.out.println("Driver JDBC creado!");
-		} catch (ClassNotFoundException e) {
+		} catch (ClassNotFoundException ex) {
 			System.out.println("No existe el driver JDBC!");
-			e.printStackTrace();
+			ex.printStackTrace();
 		}
 
 		try {
@@ -31,6 +31,15 @@ public class ConnectionBD {
 			System.out.println(e.getMessage());
 		}
 		return conn;
+	}
+	
+	public void connectClose() throws SQLException {
+		try {
+			conn.close();
+			System.out.println("Driver JDBC desconnectado!");
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
 	}
 
 // el método connect para la versión 6 del MySQL diriver
