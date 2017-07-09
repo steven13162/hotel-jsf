@@ -14,4 +14,4 @@ It is necessary to create a connection pool "datasource" on the server to connec
 
 <center>Logical model of database:</center>
 
-![modelo lógico de base da datos](https://raw.githubusercontent.com/lytves/hotel/master/datebase/modelo_logico_hotel.png)
+![modelo lógico de base da datos](https://raw.githubusercontent.com/lytves/hotel-jsf/master/datebase/modelo_logico_hotel.png)
