@@ -11,7 +11,7 @@ public class HabitacionBusquedaForma {
     private Integer ano;
     private Integer mes;
     private Integer dia;
-    private Integer estanciaDias;
+    private Integer estanciaDias = 1;
     private RoomType tipoHabitacion;
     private BigDecimal precioHabitacion;
 	private LinkedHashMap<RoomType, BigDecimal> listTiposHabitaciones;
