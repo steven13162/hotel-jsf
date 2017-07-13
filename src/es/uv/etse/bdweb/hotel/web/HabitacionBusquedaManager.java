@@ -1,16 +1,15 @@
 package es.uv.etse.bdweb.hotel.web;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
 
 import es.uv.etse.bdweb.hotel.domain.Habitacion;
 import es.uv.etse.bdweb.hotel.ejb.HabitacionBusquedaBean;
@@ -18,8 +17,6 @@ import es.uv.etse.bdweb.hotel.web.util.HabitacionBusquedaForma;
 
 @ManagedBean(name="habbuscmanager")
 @SessionScoped
-//request scope para no tener en la memoria siempre la forma por defecto,
-//con que no se borra el precio de tipo de habitacion cuando eligimos null("Elija...")
 public class HabitacionBusquedaManager implements Serializable {
  
 	private static final long serialVersionUID = 1L;
@@ -35,8 +32,12 @@ public class HabitacionBusquedaManager implements Serializable {
     private void init() {
         logger.info("BusquedaHabitacionesManager===INIT===BusquedaHabitacionesManager===INIT===");
         this.habitacionBusquedaForma = new HabitacionBusquedaForma();
+        //iniciamos tipos de habitaciones y precios
         this.habitacionBusquedaForma.setListTiposHabitaciones(habitacionBusquedaBean.getTiposHabitaciones());
         this.habitacionBusquedaForma.setTipoHabitacion(this.habitacionBusquedaForma.getListTiposHabitaciones().entrySet().iterator().next().getKey());
+        this.habitacionBusquedaForma.setAno(dateTodayYear());
+        this.habitacionBusquedaForma.setMes(dateTodayMonth());
+        this.habitacionBusquedaForma.setDia(dateTodayDay());
     }
     
 	public HabitacionBusquedaForma getHabitacionBusquedaForma() {
@@ -59,30 +60,52 @@ public class HabitacionBusquedaManager implements Serializable {
 		this.habitaciones = habitaciones;
 	}
 	
-	public String mostrarHabitaciones(){
-		logger.info("BusquedaHabitacionesManager===mostrarHabitaciones");
-		
-		String navigation = "roomsearchlist";
-		this.habitaciones = habitacionBusquedaBean.buscarHabitacionesPorFormaBD(habitacionBusquedaForma);
-		
-		return navigation;
+	/*
+	 * aquí definimos la fecha de hoy para ponerlo en lá página
+	 */
+	public String dateToday() {
+		LocalDate fechaToday = LocalDate.now();
+		// formateamos la fecha de hoy "LocalDate" a un String
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yy");
+		String formattedString = fechaToday.format(formatter);
+		return formattedString;
 	}
 	
-	public String mostrarHabitacionesPorEstado(){
-		logger.info("BusquedaHabitacionesManager===mostrarHabitaciones");
-		String navigation;
-		List<Habitacion> listaHabitaciones = habitacionBusquedaBean.buscarHabitacionesPorEstadoBD(habitacionBusquedaForma);
+	/*
+	 * aquí definimos la fecha de hoy para ponerlo en lá busqueda por defecto
+	 */
+	public int dateTodayYear() {
+		int todayYear = LocalDate.now().getYear();
+		return todayYear;
+	}
+	public int dateTodayMonth() {
+		int todayMonth = LocalDate.now().getMonthValue();
+		return todayMonth;
+	}
+	public int dateTodayDay() {
+		int todayDay = LocalDate.now().getDayOfMonth();
+		return todayDay;
+	}
+	
+	/*
+	 * mostramos las habitaciones que cumplen los requisitos del formulario de búsqueda del usuario
+	 */
+	public String buscarHabitacionesPorFormulario(){
+		logger.info("\nBusquedaHabitacionesManager===\nmostrarHabitaciones()\n");
 		
-		if (!listaHabitaciones.isEmpty()) {
-			navigation = "roomsearchlist";
-			this.habitaciones = listaHabitaciones;
-		}
-		else {
-			navigation = "errorMessage";
-			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage("Error search room!"));
-			FacesContext.getCurrentInstance().getExternalContext().getFlash().setKeepMessages(true);
-		}
+		String navigation = "roomsearchlist";
+		
+		LocalDate fechaEntrada = this.habitacionBusquedaForma.getFechaEntrada(); 
+		LocalDate fechaSalida = this.habitacionBusquedaForma.getFechaSalida();
+		String tipoHabitacion = this.habitacionBusquedaForma.getTipoHabitacion().getTipo();
+		
+		logger.info("formaBusquedaHabitaciones.getAno() " + this.habitacionBusquedaForma.getAno());
+		logger.info("formaBusquedaHabitaciones.getMes() " + this.habitacionBusquedaForma.getMes());
+		logger.info("formaBusquedaHabitaciones.getDia() " + this.habitacionBusquedaForma.getDia());
+		logger.info("formaBusquedaHabitaciones.getestanciaDias() " + this.habitacionBusquedaForma.getEstanciaDias());
+		logger.info("formaBusquedaHabitaciones..getTipoHabitacion() " + this.habitacionBusquedaForma.getTipoHabitacion());
+		
+		this.habitaciones = habitacionBusquedaBean.buscarHabitacionesPorFormaBD(fechaEntrada, fechaSalida, tipoHabitacion);
 		
 		return navigation;
 	}

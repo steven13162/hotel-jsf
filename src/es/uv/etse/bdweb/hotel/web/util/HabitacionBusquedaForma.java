@@ -8,10 +8,10 @@ import java.util.Map;
 import es.uv.etse.bdweb.hotel.common.RoomType;
 
 public class HabitacionBusquedaForma {
-    private Integer ano = 2017;
-    private Integer mes = 7;
-    private Integer dia = 10;
-    private Integer estanciaDias = 5;
+    private Integer ano;
+    private Integer mes;
+    private Integer dia;
+    private Integer estanciaDias;
     private RoomType tipoHabitacion;
     private BigDecimal precioHabitacion;
 	private LinkedHashMap<RoomType, BigDecimal> listTiposHabitaciones;

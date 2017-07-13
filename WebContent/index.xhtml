@@ -1,0 +1,86 @@
+<ui:composition template="/template/commonLayout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+	<ui:define name="title">Reservas Hoteleras</ui:define>
+
+	<ui:define name="content">
+
+		<h:form id="searchRoomForm">
+			<h3>
+				index.xhtml - Haga tu elicción de reserva:<br></br>
+			</h3>
+			<h:panelGrid columns="2" styleClass="order-table reservainfo"
+				headerClass="order-table-header"
+				rowClasses="order-table-odd-row,order-table-even-row">
+
+				<h:outputLabel>Fecha de hoy:</h:outputLabel>
+				<h:outputText value="#{habbuscmanager.dateToday()}" />
+				
+				<h:outputLabel>Fecha de Entrada:</h:outputLabel>
+				<h:panelGroup />
+
+				<h:outputLabel for="dia">Día:</h:outputLabel>
+				<h:inputText value="#{habbuscmanager.habitacionBusquedaForma.dia}"
+					id="dia" pt:type="number" size="10" required="true"
+					requiredMessage="Error: introduzca el día" binding="#{dayValidate}"
+					pt:min="1" pt:max="31" />
+
+				<h:outputLabel for="mes">Mes:</h:outputLabel>
+				<h:inputText value="#{habbuscmanager.habitacionBusquedaForma.mes}"
+					id="mes" pt:type="number" size="10" required="true"
+					requiredMessage="Error: introduzca el mes"
+					binding="#{monthValidate}" pt:min="1" pt:max="12" />
+
+				<h:outputLabel for="ano">Año:</h:outputLabel>
+				<h:inputText value="#{habbuscmanager.habitacionBusquedaForma.ano}"
+					id="ano" pt:type="number" size="10" required="true"
+					requiredMessage="Error: introduzca el año"
+					pt:min="#{habbuscmanager.dateTodayYear()}"
+					pt:max="#{habbuscmanager.dateTodayYear() + 3}">
+					<f:validator validatorId="dateRangeValidator" />
+					<f:attribute name="monthValidate" value="#{monthValidate}" />
+					<f:attribute name="dayValidate" value="#{dayValidate}" />
+				</h:inputText>
+
+				<h:outputLabel for="estancia">Días de Estancía:</h:outputLabel>
+				<h:inputText
+					value="#{habbuscmanager.habitacionBusquedaForma.estanciaDias}"
+					id="estancia" pt:type="number" size="10" required="true"
+					requiredMessage="Error: introduzca el número de días" pt:min="1"
+					pt:max="30" />
+
+				<h:outputLabel for="tipoHabitacion">Tipo de Habitación:</h:outputLabel>
+				<h:selectOneMenu
+					value="#{habbuscmanager.habitacionBusquedaForma.tipoHabitacion}"
+					id="tipoHabitacion" required="true"
+					requiredMessage="Error: elija ei tipo de habitación">
+					<!--  				<f:selectItem itemValue="#{null}" itemLabel="Elija..." noSelectionOption="true" /> -->
+					<f:selectItems
+						value="#{habbuscmanager.habitacionBusquedaForma.listTiposHabitaciones.entrySet()}"
+						var="entry" itemValue="#{entry.key}" itemLabel="#{entry.key}" />
+					<f:ajax render="precioHabitacion" />
+				</h:selectOneMenu>
+
+				<h:outputLabel for="precioHabitacion">Precio (una noche):</h:outputLabel>
+				<h:outputText id="precioHabitacion"
+					value="#{habbuscmanager.habitacionBusquedaForma.precioHabitacion}" />
+
+				<h:panelGroup />
+				<h:commandButton action="#{habbuscmanager.buscarHabitacionesPorFormulario}"
+					value="Buscar" styleClass="login-submit navi padding-margin" />
+
+			</h:panelGrid>
+
+			<div class="messagecolor">
+				<h:messages showSummary="true" showDetail="false"
+					errorClass="error-messages" infoClass="info-messages" />
+			</div>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
