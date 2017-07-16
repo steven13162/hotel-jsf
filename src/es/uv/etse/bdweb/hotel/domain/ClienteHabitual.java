@@ -59,11 +59,13 @@ public class ClienteHabitual extends Cliente implements Serializable {
 //				+ ", password: " + getPassword() + ", descuento: " + descuento + ", newsletter: " + newsletter
 //				+ descuento + ", tipoCliente: " + getTipoCliente();
 
-	@Override
-	public String toString() {
-		return "ClienteHabitual: id: " + getId() + ", nombre: " + getNombre() + ", apellidos: " + getApellidos()
-				+ ", direccion: " + getDireccion() + ", dni: " + getDni() + ", email: " + getEmail() + ", numeroMovil: "
-				+ getNumeroMovil() + ", numeroTarjeta: " + getNumeroTarjeta() + ", password: " + getPassword()
-				+ ", descuento: " + descuento + ", newsletter: " + newsletter;
-	}
+	
+	
+//	@Override
+//	public String toString() {
+//		return "ClienteHabitual: id: " + getId() + ", nombre: " + getNombre() + ", apellidos: " + getApellidos()
+//				+ ", direccion: " + getDireccion() + ", dni: " + getDni() + ", email: " + getEmail() + ", numeroMovil: "
+//				+ getNumeroMovil() + ", numeroTarjeta: " + getNumeroTarjeta() + ", password: " + getPassword()
+//				+ ", descuento: " + descuento + ", newsletter: " + newsletter;
+//	}
 }

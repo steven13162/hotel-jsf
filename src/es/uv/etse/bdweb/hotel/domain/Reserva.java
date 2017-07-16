@@ -26,7 +26,6 @@ import es.uv.etse.bdweb.hotel.common.ReserveState;
  */
 @Entity
 @Table(name="reservas")
-
 public class Reserva implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -53,15 +52,16 @@ public class Reserva implements Serializable {
 	@Column(name="res_estado")
 	private ReserveState estado;
 	
+
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="habitaciones_hab_id", nullable = false)
 	private Habitacion habitacion;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="clientes_cli_id", nullable = false)
 	private Cliente cliente;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="promociones_prom_id", nullable = true)
 	private Promocion promocion;
 	
@@ -124,7 +124,7 @@ public class Reserva implements Serializable {
 	}
 
 	public void setImporte() {
-		if (cliente != null && (cliente instanceof ClienteHabitual)) {
+		if (cliente != null && (cliente instanceof ClienteHabitual) && promocion == null) {
 			ClienteHabitual clientehabitual = (ClienteHabitual) cliente;
 			
 			int dias = (int) Duration.between(fechaInicio.atTime(0, 0), fechaFinal.atTime(0, 0)).toDays();
@@ -133,7 +133,12 @@ public class Reserva implements Serializable {
 			double descuento = (double) (100-clientehabitual.getDescuento().intValue())/100;
 			BigDecimal importeConDesc = importeSinDesc.multiply(BigDecimal.valueOf(descuento));
 			this.importe = importeConDesc.setScale(2);			
-		} else {
+		}
+		else if (promocion != null) {
+			this.importe = promocion.getPrecio();
+		}
+		else
+		{
 			this.importe = habitacion.getTipoHabitacion().getPrecio().multiply(new BigDecimal(Duration.between(fechaInicio.atTime(0, 0), fechaFinal.atTime(0, 0)).toDays()));
 		}
 	}
@@ -156,11 +161,12 @@ public class Reserva implements Serializable {
 
 	public void setPromocion(Promocion promocion) {
 		this.promocion = promocion;
+		this.importe = promocion.getPrecio();
 	}
    
-	@Override
-	public String toString(){
-		return "Reserva: fechaInicio:"+ fechaInicio + ", fechaFinal:" + fechaFinal
-				+ ", importe:" + importe + ", cliente:" + cliente + ",  habitacion:" + habitacion;
-	}
+//	@Override
+//	public String toString(){
+//		return "Reserva: fechaInicio:"+ fechaInicio + ", fechaFinal:" + fechaFinal
+//				+ ", importe:" + importe + ", cliente:" + cliente + ",  habitacion:" + habitacion;
+//	}
 }

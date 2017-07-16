@@ -15,6 +15,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * Entity implementation class for Entity: Habitacion
  *
@@ -39,7 +41,8 @@ public class Habitacion implements Serializable {
 	@JoinColumn(name="tipos_habitaciones_tip_hab_id", nullable = false)
 	private TipoHabitacion tipoHabitacion;
 	
-	@OneToMany(mappedBy="habitacion")
+	@JsonIgnore
+	@OneToMany(mappedBy="habitacion",fetch=FetchType.LAZY)
 	private List<Reserva> listaReservas;
 
 	public Habitacion() {
@@ -86,10 +89,10 @@ public class Habitacion implements Serializable {
 		this.listaReservas = listaReservas;
 	}
    
-	@Override
-	public String toString(){
-		return "Habitacion: id:"+ id + ", numeroHabitacion:" + numeroHabitacion
-				+ ", habitacionOcupada:" + habitacionOcupada + ", tipoHabitacion:" + tipoHabitacion;
-	}
-	
+//	@Override
+//	public String toString(){
+//		return "Habitacion: id:"+ id + ", numeroHabitacion:" + numeroHabitacion
+//				+ ", habitacionOcupada:" + habitacionOcupada + ", tipoHabitacion:" + tipoHabitacion;
+//	}
+//	
 }

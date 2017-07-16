@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,6 +15,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * Entity implementation class for Entity: Cliente
@@ -59,7 +62,8 @@ public class Cliente implements Serializable {
 //	@Column(name="cli_tipo", insertable = false, updatable = false)
 //	private String tipoCliente = "cliente";
 	
-	@OneToMany(mappedBy="cliente")
+	@JsonIgnore
+	@OneToMany(mappedBy="cliente",fetch=FetchType.LAZY)
 	private List<Reserva> listReservas;
 	 
 	public Cliente() {
@@ -160,13 +164,15 @@ public class Cliente implements Serializable {
 //				+ ", direccion:" + direccion + ", dni:" + dni + ", email:" + email
 //				+ ", numeroMovil:" + numeroMovil + ", numeroTarjeta" + numeroTarjeta
 //				+ ", password" + password + ", tipoCliente" + tipoCliente;
-		
-		@Override
-		public String toString(){
-			return "Cliente: id:"+ id + ", nombre:" + nombre + ", apellidos:" + apellidos
-					+ ", direccion:" + direccion + ", dni:" + dni + ", email:" + email
-					+ ", numeroMovil:" + numeroMovil + ", numeroTarjeta" + numeroTarjeta
-					+ ", password" + password;
-	}
-   
+
+	
+	
+//		@Override
+//		public String toString(){
+//			return "Cliente: id:"+ id + ", nombre:" + nombre + ", apellidos:" + apellidos
+//					+ ", direccion:" + direccion + ", dni:" + dni + ", email:" + email
+//					+ ", numeroMovil:" + numeroMovil + ", numeroTarjeta" + numeroTarjeta
+//					+ ", password" + password;
+//	}
+//   
 }

@@ -110,5 +110,11 @@ public class Promocion implements Serializable {
 		this.listaReservas = listaReservas;
 	}
    
+//	@Override
+//	public String toString(){
+//		return "Promocionn: id:"+ id + ", fechaInicio:" + fechaInicio
+//				+ ", fechaFinal:" + fechaFinal + ", descripcion:" + descripcion
+//				+ ", precio:" + precio + ", tipoHabitacion:" + tipoHabitacion;
+//	}
 	
 }
