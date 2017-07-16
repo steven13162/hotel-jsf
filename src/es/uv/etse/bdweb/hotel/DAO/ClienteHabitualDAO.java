@@ -21,4 +21,6 @@ public interface ClienteHabitualDAO {
 	public ClienteHabitual getClienteHabitualByDNI(String dni);
 
 	public List<ClienteHabitual> getClienteHabitualByTipo(String tipo);
+	
+	public void setDescuentoParaTodosClientesHabituales(Integer descuento);
 }

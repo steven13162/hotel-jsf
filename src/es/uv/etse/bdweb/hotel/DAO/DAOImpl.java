@@ -51,7 +51,7 @@ public abstract class DAOImpl<K, T> implements DAO<K, T> {
 			em.getTransaction().commit();
 		}
 	}
-
+	
 	@Override
 	public void deleteById(K entityId) {
 		T entity = em.find(entityClass, entityId);
@@ -74,5 +74,30 @@ public abstract class DAOImpl<K, T> implements DAO<K, T> {
 		List<T> resultList = (List<T>) em.createQuery(query, this.entityClass).getResultList();
 		return resultList;
 	}
-
+	
+	
+	@Override
+	public List<T> findAllOrderByDesc(String campo) {
+		String query  = "SELECT e FROM " + this.entityClass.getName() + " e ORDER BY e." + campo +" DESC";
+		List<T> resultList = (List<T>) em.createQuery(query, this.entityClass).getResultList();
+		return resultList;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Object[]> findObjectsByNativeQuery(String query) {
+		List<Object[]> list = (List<Object[]>) em.createQuery(query).getResultList();
+		return list;
+	}
+	
+	@Override
+	public Object findByNativeQuery(String query){
+		Object object = em.createQuery(query).getSingleResult();
+		return object;
+	}
+	
+	@Override
+	public void updateByNativeQuery(String query) {
+		em.createQuery(query).executeUpdate();
+	}
 }

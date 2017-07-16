@@ -1,5 +1,6 @@
 package es.uv.etse.bdweb.hotel.DAO;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -99,11 +100,41 @@ public class ReservaDAOImpl extends DAOImpl<Long, Reserva> implements ReservaDAO
 
 		String criteria = "(e.estado = '" + ReserveState.ACTIVA.getEstado() + "' OR (e.estado = '"
 				+ ReserveState.CERRADA.getEstado() + "' AND (e.fechaFinal BETWEEN '" + fechaDesde + "' AND '" + fechaHasta + "')))"
-				+ " AND e.cliente = '" + id + "' ORDER BY e.fechaFinal DESC";
+				+ " AND e.cliente = '" + id + "' ORDER BY e.fechaInicio DESC";
 		
 		List<Reserva> lista = this.findByCriteria(criteria);
 		return lista;
 	}
 	
+	@Override
+	public List<Reserva> getReservasCancelables(LocalDate fechaHasta, Long id) {
+
+		String criteria = "e.estado = '" + ReserveState.ACTIVA.getEstado() + "'"
+				+ " AND e.fechaInicio > '" + fechaHasta + "'"
+				+ " AND e.cliente = '" + id + "' ORDER BY e.fechaInicio ASC";
+		
+		List<Reserva> lista = this.findByCriteria(criteria);
+		return lista;
+	}
+	
+	@Override
+	public List<Reserva> getReservasVencidas(LocalDate fecha) {
+
+		String criteria = "e.estado = '" + ReserveState.ACTIVA.getEstado() + "'"
+				+ " AND e.fechaInicio = '" + fecha + "'";
+		
+		List<Reserva> lista = this.findByCriteria(criteria);
+		return lista;
+	}
+	
+	@Override
+	public Object getGananciasPorMes(Integer ano, Integer mes){
+		
+		String query = "SELECT SUM(r.importe) FROM Reserva r"
+				+ " WHERE MONTH(r.fechaFinal) = '"+ mes +"' AND YEAR(r.fechaFinal) = '"+ ano +"'"
+				+ " AND res_estado = '" + ReserveState.CERRADA.getEstado() + "'";
+		
+		return this.findByNativeQuery(query);
+	}
 
 }

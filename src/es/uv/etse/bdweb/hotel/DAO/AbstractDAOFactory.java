@@ -14,6 +14,8 @@ public abstract class AbstractDAOFactory {
 	
 	public abstract PromocionDAO getPromocionDAO();
 	
+	public abstract RecepcionistaDAO getRecepcionistaDAO();
+	
 	public abstract ReservaDAO getReservaDAO();
 	
 	public abstract TipoHabitacionDAO getTipoHabitacionDAO();

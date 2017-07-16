@@ -13,7 +13,7 @@ public interface ReservaDAO {
 
 	public void createReserva(Reserva r);
 	
-	public void updateReserva(Reserva t);
+	public void updateReserva(Reserva r);
 
 	public void deleteReserva(Reserva r);
 
@@ -36,4 +36,11 @@ public interface ReservaDAO {
 	public Boolean getReservaDisponibleByIdAndFechas(Long id, LocalDate fechaEntrada, LocalDate fechaSalida);
 	
 	public List<Reserva> getReservasRecientes(LocalDate fechaDesde, LocalDate fechaHasta, Long id);
+	
+	public List<Reserva> getReservasCancelables(LocalDate fechaHasta, Long id);
+	
+	public List<Reserva> getReservasVencidas(LocalDate fecha);
+	
+	public Object getGananciasPorMes(Integer ano, Integer mes);
+	
 }

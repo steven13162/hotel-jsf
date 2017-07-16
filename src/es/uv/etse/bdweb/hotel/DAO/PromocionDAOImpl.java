@@ -51,5 +51,10 @@ public class PromocionDAOImpl extends DAOImpl<Long, Promocion> implements Promoc
 	public List<Promocion> getPromocionByFechas(String dates) {
 		return this.findByCriteria(dates);
 	}
+	
+	@Override
+	public List<Promocion> getPromocionesByFechaInicioDesc() {
+		return this.findAllOrderByDesc("fechaInicio");
+	}
 
 }

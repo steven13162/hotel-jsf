@@ -20,5 +20,7 @@ public interface PromocionDAO {
 	public List<Promocion> getPromocionByFechaFinal(String date);
 
 	public List<Promocion> getPromocionByFechas(String dates);
+	
+	public List<Promocion> getPromocionesByFechaInicioDesc();
 
 }

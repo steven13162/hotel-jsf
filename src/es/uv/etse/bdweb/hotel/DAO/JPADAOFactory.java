@@ -32,6 +32,11 @@ public class JPADAOFactory extends AbstractDAOFactory {
 	}
 
 	@Override
+	public RecepcionistaDAO getRecepcionistaDAO() {
+		return new RecepcionistaDAOImpl(getEntityManager());
+	}
+	
+	@Override
 	public ReservaDAO getReservaDAO() {
 		return new ReservaDAOImpl(getEntityManager());
 	}

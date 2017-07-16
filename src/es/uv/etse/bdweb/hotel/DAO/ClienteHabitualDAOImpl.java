@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import es.uv.etse.bdweb.hotel.common.ReserveState;
 import es.uv.etse.bdweb.hotel.domain.ClienteHabitual;
 
 public class ClienteHabitualDAOImpl extends DAOImpl<Long, ClienteHabitual> implements ClienteHabitualDAO {
@@ -54,5 +55,14 @@ public class ClienteHabitualDAOImpl extends DAOImpl<Long, ClienteHabitual> imple
 	public List<ClienteHabitual> getClienteHabitualByTipo(String tipo) {
 		return this.findByCriteria(tipo);
 	}
-
+	
+	@Override
+	public void setDescuentoParaTodosClientesHabituales(Integer descuento){
+		//UPDATE bdweb_hotel.clientes_habituales
+//		SET cli_descuento = '10';
+		
+		String query = "UPDATE ClienteHabitual SET descuento = '" + descuento + "'";
+		
+		this.updateByNativeQuery(query);
+	}
 }
