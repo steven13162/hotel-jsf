@@ -93,7 +93,7 @@ public class HabitacionBusquedaManager implements Serializable {
 	public String buscarHabitacionesPorFormulario(){
 		logger.info("\nBusquedaHabitacionesManager===\nmostrarHabitaciones()\n");
 		
-		String navigation = "roomsearchlist";
+		String navigation = "roomSearchList";
 		
 		LocalDate fechaEntrada = this.habitacionBusquedaForma.getFechaEntrada(); 
 		LocalDate fechaSalida = this.habitacionBusquedaForma.getFechaSalida();

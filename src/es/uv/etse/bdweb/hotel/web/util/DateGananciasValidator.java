@@ -10,8 +10,8 @@ import javax.faces.validator.FacesValidator;
 import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
 
-@FacesValidator("dateRangeValidator")
-public class DateRangeValidator implements Validator {
+@FacesValidator("dateGananciasValidator")
+public class DateGananciasValidator implements Validator {
 
 	@Override
 	public void validate(FacesContext context, UIComponent component, Object value) throws ValidatorException {
@@ -24,24 +24,22 @@ public class DateRangeValidator implements Validator {
 //		}
 		
 		UIInput monthValidate = (UIInput) component.getAttributes().get("monthValidate");
-		UIInput dayValidate = (UIInput) component.getAttributes().get("dayValidate");
 	
 		Integer year = (Integer) value;
 		Integer mes = (Integer) monthValidate.getValue();
-		Integer dia = (Integer) dayValidate.getValue();
 		
-		if (year == null || mes == null || dia == null) {
+		if (year == null || mes == null) {
 			return; // Let required="true" handle.
 		}
 		
-		LocalDate fechaInicio = LocalDate.of(year,mes,dia);
+		
 		LocalDate fechaHoy = LocalDate.now();
+		LocalDate fechaConsulta = LocalDate.of(year,mes,fechaHoy.getDayOfMonth());
 		
-		if (fechaInicio.isEqual(fechaHoy) || fechaInicio.isAfter(fechaHoy)) return;
-		
-		if (fechaInicio.isBefore(fechaHoy)) {
+		if (fechaConsulta.isEqual(fechaHoy)) return;
+		if (fechaConsulta.isAfter(fechaHoy)) {
 			throw new ValidatorException(
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Start date may not be before today.", null));
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Month of Date may not be after this!", null));
 		}
 	}
 

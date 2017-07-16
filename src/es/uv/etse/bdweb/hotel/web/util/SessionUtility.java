@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import es.uv.etse.bdweb.hotel.domain.ClienteHabitual;
+import es.uv.etse.bdweb.hotel.domain.Recepcionista;
 
 public class SessionUtility {
 
@@ -16,6 +17,16 @@ public class SessionUtility {
 		return (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
 	}
 
+	public static Recepcionista getRecepcionista(){
+		HttpSession session = getSession();
+		if (session != null)
+		{
+			Recepcionista recepcionista;
+			recepcionista = (Recepcionista) session.getAttribute("recepcionistaSession");
+			return recepcionista;
+		}
+		else return null;
+	}
 	public static ClienteHabitual getClienteHabitual() {
 
 		HttpSession session = getSession();

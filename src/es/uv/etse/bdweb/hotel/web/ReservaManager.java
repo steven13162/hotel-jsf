@@ -68,8 +68,10 @@ public class ReservaManager implements Serializable {
 	}
 
 	public void crearReserva(Habitacion habitacion, LocalDate fechaEntrada, LocalDate fechaSalida) {
-//    	Reserva reserva = new Reserva();
-    	
+		
+		this.reserva = new Reserva();
+		this.reservaInfo = new Reserva();
+		
         this.reserva.setFechaInicio(fechaEntrada);
         this.reserva.setFechaFinal(fechaSalida);
         this.reserva.setHabitacion(habitacion);

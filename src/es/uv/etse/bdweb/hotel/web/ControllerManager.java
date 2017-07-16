@@ -67,6 +67,10 @@ public class ControllerManager implements Serializable {
 		this.reservaManager = reservaManager;
 	}
 
+	/*
+	 * comprobar si el número que pasa el usuario en la página de la lista de las habitaciones
+	 * para reservar es de usuario habitual
+	 */
 	public String comprobarDNI() {
 		String navigation = "";
 		ClienteHabitual clienteHabitual;
@@ -105,7 +109,7 @@ public class ControllerManager implements Serializable {
 			        "You are registered already, enter your password to login form for sign in and finish your reservation!", null));
 
 			FacesContext.getCurrentInstance().getExternalContext().getFlash().setKeepMessages(true);
-			navigation = "roomsearchlist?faces-redirect=true";
+			navigation = "roomSearchList?faces-redirect=true";
 
 		} else {
 			logger.info("\n*****************************************\n*****************************************\n"
@@ -121,11 +125,14 @@ public class ControllerManager implements Serializable {
 					+ "*****************************************\n*****************************************"
 					+ "\n*****************************************" + "\n*****************************************");
 
-			navigation = "clienteedit?faces-redirect=true";
+			navigation = "clientEdit?faces-redirect=true";
 		}
 		return navigation;
 	}
 
+	/*
+	 * el principal método de crear la Reserva después de introducir todos los datos por el usuario 
+	 */
 	public String reservar() {
 		String navigation = "errorMessage";
 		String passwordRandom = "";
@@ -186,7 +193,7 @@ public class ControllerManager implements Serializable {
 							+ "******************  ControllerManager: reserva realizada *******************************\n"
 							+ "*****************************************\n*****************************************"
 							+ "\n*****************************************");
-			navigation = "/reserveinfo?faces-redirect=true";
+			navigation = "/reserveInfo?faces-redirect=true";
 
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Reservation created successfully!"));
 			if (!(reservaManager.getReserva().getCliente() instanceof ClienteHabitual)) {
@@ -234,6 +241,9 @@ public class ControllerManager implements Serializable {
 
 	}
 
+	/*
+	 * Registramos el cliente que ya introdujo sus datos al cliente Habitual
+	 */
 	public String registrarClienteHabitual() {
 		String passwordRandom = "";
 		
@@ -269,7 +279,7 @@ public class ControllerManager implements Serializable {
 					+ "\n*******************true**********************" + "\n*****************************************\n"
 					+ clihab.toString());
 			
-			String navigation = "clihab/clientehabitualedit?faces-redirect=true";
+			String navigation = "clihab/clientHabitualEdit?faces-redirect=true";
 			
 			clienteHabitualManager.setClienteHabitual(clihab);
 			//aquí definimos un cliente a la reserva y también recontamos el importe en setCliente()
