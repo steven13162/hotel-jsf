@@ -1,0 +1,136 @@
+<ui:composition template="/template/commonLayout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+	<ui:define name="title">Reserva del cliente habitual:</ui:define>
+
+	<ui:define name="content">
+
+		<h3>clientHabitualEdit.xhtml - Información de la reserva del
+			cliente habitual:</h3>
+
+		<h:outputText class="error-messages"
+			value="No existe el cliente habitual o/y la reserva!"
+			rendered="#{empty clihabmanager.clienteHabitual.id
+		or empty resmanager.reserva.habitacion
+		or empty resmanager.reserva.fechaInicio
+	 	or empty resmanager.reserva.fechaFinal
+	 	or empty resmanager.reserva.importe
+		or empty clienteHabitualSession}" />
+
+		<h:panelGrid
+			rendered="#{not empty clihabmanager.clienteHabitual.id
+		and not empty resmanager.reserva.habitacion
+	 	and not empty resmanager.reserva.fechaInicio
+	 	and not empty resmanager.reserva.fechaFinal
+	 	and not empty resmanager.reserva.importe
+	 	and not empty clienteHabitualSession}">
+
+			<h:panelGrid columns="2" styleClass="order-table reservainfo">
+	
+			Fecha de Entrada:
+			<h:outputText value="#{resmanager.reservaInfo.fechaInicio}" />
+
+			Fecha de Salida:
+			<h:outputText value="#{resmanager.reservaInfo.fechaFinal}" />
+
+			Número de habitacion:
+			<h:outputText
+					value="#{resmanager.reservaInfo.habitacion.numeroHabitacion}" />
+				
+			Tipo de habitacion:
+			<h:outputText
+					value="#{resmanager.reservaInfo.habitacion.tipoHabitacion.tipo}" />
+
+				<h:panelGrid columns="2">
+				Importe total
+					<span jsf:rendered="#{empty resmanager.reservaInfo.promocion}"
+						class="red">(con el descuento
+						#{clihabmanager.clienteHabitual.descuento}%):</span>
+
+					<span jsf:rendered="#{not empty resmanager.reservaInfo.promocion}"
+						class="red">(promoción):</span>
+				</h:panelGrid>
+
+				<h:outputText value="#{resmanager.reservaInfo.importe}" />
+
+			</h:panelGrid>
+
+			<div class="messagecolor">
+				<h:messages showSummary="true" showDetail="false"
+					errorClass="error-messages" infoClass="info-messages" />
+			</div>
+
+			<h:form id="clientForm">
+
+				<h3>
+					Información del cliente:<br></br>
+				</h3>
+
+				<h:panelGrid columns="2" styleClass="order-table"
+					headerClass="order-table-header"
+					rowClasses="order-table-odd-row,order-table-even-row">
+
+					<h:outputLabel for="nombre">Nombre:</h:outputLabel>
+					<h:inputText value="#{clihabmanager.clienteHabitual.nombre}"
+						id="nombre" pt:type="text" size="20" required="true"
+						requiredMessage="Error: introduzca el nombre" />
+
+					<h:outputLabel for="apellidos">Apellidos:</h:outputLabel>
+					<h:inputText value="#{clihabmanager.clienteHabitual.apellidos}"
+						id="apellidos" pt:type="text" size="20" required="true"
+						requiredMessage="Error: introduzca los apellidos" />
+
+					<h:outputLabel for="direccion">Direccion:</h:outputLabel>
+					<h:inputText value="#{clihabmanager.clienteHabitual.direccion}"
+						id="direccion" pt:type="text" size="40" required="true"
+						requiredMessage="Error: introduzca la direccion" />
+
+					<h:outputLabel for="dni">DNI:</h:outputLabel>
+					<h:inputText value="#{clihabmanager.clienteHabitual.dni}" id="dni"
+						pt:type="text" size="15" required="true" pt:disabled="disabled" />
+
+					<h:outputLabel for="email">Email:</h:outputLabel>
+					<h:inputText value="#{clihabmanager.clienteHabitual.email}"
+						id="email" pt:type="email" size="20" required="true"
+						requiredMessage="Error: introduzca el email" />
+
+					<h:outputLabel for="numeroMovil">Número de Movil:</h:outputLabel>
+					<h:inputText value="#{clihabmanager.clienteHabitual.numeroMovil}"
+						id="numeroMovil" pt:type="text" size="20" required="true"
+						requiredMessage="Error: introduzca el número Movil" />
+
+					<h:outputLabel for="numeroTarjeta">Número de Tarjeta</h:outputLabel>
+					<h:inputText value="#{clihabmanager.clienteHabitual.numeroTarjeta}"
+						id="numeroTarjeta" pt:type="text" size="16" required="true"
+						requiredMessage="Error: introduzca el número Tarjeta" />
+
+					<h:outputLabel for="newsletter">Recibir la 'newsletter'</h:outputLabel>
+					<h:selectBooleanCheckbox id="newsletter"
+						value="#{clihabmanager.clienteHabitual.newsletter}" />
+
+					<h:outputLabel for="cobrarReserva">Cóbrame ahora</h:outputLabel>
+					<h:selectBooleanCheckbox id="cobrarReserva"
+						value="#{resmanager.cobrarReserva}" />
+
+					<h:outputLink value="/project-hotel/index.xhtml"
+						styleClass="login-submit logout padding-margin">
+						Otra búsqueda
+					</h:outputLink>
+					<h:commandButton action="#{controllerManager.reservar}"
+						styleClass="login-submit navi padding-margin"
+						value="Reservar habitación" />
+
+				</h:panelGrid>
+
+			</h:form>
+
+		</h:panelGrid>
+
+	</ui:define>
+
+</ui:composition>

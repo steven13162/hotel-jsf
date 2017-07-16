@@ -1,0 +1,99 @@
+<ui:composition template="/template/commonLayout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:define name="title">Lista de las reservas recientes:</ui:define>
+
+	<ui:define name="content">
+
+		<h3>listReservesCancelables.xhtml - Lista de las reservas
+			cancelables (pendientes de entrada):</h3>
+
+		<h:outputText class="error-messages"
+			value="No hay reservas cancelables!"
+			rendered="#{empty resbusc.listaReservas}" />
+
+		<h:dataTable var="reserva"
+			rendered="#{not empty resbusc.listaReservas}"
+			value="#{resbusc.listaReservas}" rules="all" cellpadding="8"
+			styleClass="order-table" headerClass="order-table-header"
+			rowClasses="order-table-odd-row,order-table-even-row">
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="ID" />
+				</f:facet>
+				<h:outputText value="#{reserva.id}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Fecha Entrada" />
+				</f:facet>
+				<h:outputText value="#{reserva.fechaInicio}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Fecha Salida" />
+				</f:facet>
+				<h:outputText value="#{reserva.fechaFinal}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Estado" />
+				</f:facet>
+				<h:outputText
+					styleClass="#{reserva.estado eq 'ACTIVA' ? 'green' : ''}"
+					value="#{reserva.estado}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Importe" />
+				</f:facet>
+				<h:outputText value="#{reserva.importe}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Cobrada" />
+				</f:facet>
+				<h:outputText
+					styleClass="#{reserva.cobrada eq true ? 'green' : 'red'}"
+					value="#{resbusc.cobradaConverter(reserva.cobrada)}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Habitación" />
+				</f:facet>
+				<h:outputText value="#{reserva.habitacion.numeroHabitacion}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Promoción" />
+				</f:facet>
+				<h:outputText
+					value="#{resbusc.promoConverter(reserva.promocion)}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Cancelacíon" />
+				</f:facet>
+				<h:form>
+					<h:commandButton value="Cancelar" styleClass="login-submit logout"
+					action="#{resbusc.cancelarReserva(reserva)}" />	
+				</h:form>
+			</h:column>
+
+		</h:dataTable>
+
+	</ui:define>
+
+</ui:composition>
