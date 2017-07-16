@@ -1,0 +1,39 @@
+<ui:composition template="/template/receptionLayout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+	<ui:define name="title">Reservas Hoteleras - Entorno de Gestión</ui:define>
+
+	<ui:define name="content">
+
+		<div class="messagecolor">
+			<h:messages showSummary="true" showDetail="false"
+				errorClass="error-messages" infoClass="info-messages" />
+		</div>
+
+		<h3 class="recepcion">El Entorno de Gestión para los
+			recepcionistas.</h3>
+
+		<div class="recepcion-info">
+			Para entrar:
+			<div class="usuario">
+				Login: <span>isaw@uv.es</span>
+			</div>
+			<div class="usuario">
+				Password: <span>12345</span>
+			</div>
+
+			<h:form>
+				<h:commandButton action="/listReceptionists.xhtml"
+					styleClass="login-submit"
+					value="Ver la lista de los recepcionistas" />
+			</h:form>
+
+		</div>
+
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,82 @@
+<ui:composition template="/template/commonLayout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+	<ui:define name="title">Lista de las promociones:</ui:define>
+
+	<ui:define name="content">
+
+		<h3>listPromotions.xhtml - Lista de las promociones:</h3>
+
+		<h:outputText class="error-messages" value="No hay promociones!"
+			rendered="#{empty promo.listaPromociones}" />
+
+		<h:dataTable var="promocion"
+			rendered="#{not empty promo.listaPromociones}"
+			value="#{promo.listaPromociones}" rules="all" cellpadding="8"
+			styleClass="order-table" headerClass="order-table-header"
+			rowClasses="order-table-odd-row,order-table-even-row">
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="ID" />
+				</f:facet>
+				<h:outputText value="#{promocion.id}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Fecha Entrada" />
+				</f:facet>
+				<h:outputText value="#{promocion.fechaInicio}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Fecha Salida" />
+				</f:facet>
+				<h:outputText value="#{promocion.fechaFinal}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Tipo de Habitación" />
+				</f:facet>
+				<h:outputText value="#{promocion.tipoHabitacion.tipo}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Precio Total" />
+				</f:facet>
+				<h:outputText value="#{promocion.precio}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Descripción" />
+				</f:facet>
+				<h:outputText value="#{promocion.descripcion}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Reservar" />
+				</f:facet>
+				<h:form>
+					<h:commandButton value="Reservar" styleClass="login-submit logout"
+						action="#{clihabmanager.crearReservaPromocion(promocion)}"
+						rendered="#{promo.esPromocionActiva(promocion) eq true}" />
+					<h:outputText value="Terminada"
+						rendered="#{promo.esPromocionActiva(promocion) eq false}" />
+				</h:form>
+			</h:column>
+
+		</h:dataTable>
+
+	</ui:define>
+
+</ui:composition>

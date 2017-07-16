@@ -1,0 +1,21 @@
+
+<ui:composition template="/template/commonLayout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:define name="title">Errors</ui:define>
+
+	<ui:define name="content">
+
+		<h3>Errors:</h3>
+
+		<div class="messagecolor">
+			<h:messages showSummary="true" showDetail="false"
+				errorStyle="color: #d20005" infoStyle="color: blue" />
+		</div>
+
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,99 @@
+<ui:composition template="/template/commonLayout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="title">Busqueda habitaciones:</ui:define>
+	
+		<ui:define name="content">
+
+			<h3>roomSearchList.xhtml - Habitaciones disponibles:</h3>
+
+			<div class="messagecolor">
+				<h:messages showSummary="true" showDetail="false"
+					errorClass="error-messages" infoClass="info-messages" />
+			</div>
+			
+			<h:outputText value="No existe ninguna habitación disponible"
+				rendered="#{empty habbuscmanager.habitaciones}" />
+
+			<h:dataTable var="habitacion"
+				summary="Lista de habitaciones desponibles"
+				rendered="#{not empty habbuscmanager.habitaciones}"
+				value="#{habbuscmanager.habitaciones}" rules="all" cellpadding="4"
+				styleClass="order-table" headerClass="order-table-header"
+				rowClasses="order-table-odd-row,order-table-even-row">
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Número" />
+					</f:facet>
+					<h:outputText value="#{habitacion.numeroHabitacion}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Tipo" />
+					</f:facet>
+					<h:outputText value="#{habitacion.tipoHabitacion.tipo}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Precio" />
+					</f:facet>
+					<h:outputText value="#{habitacion.tipoHabitacion.precio}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Reservar" />
+					</f:facet>
+					<h:form>
+						<p:commandButton value="Reservar"
+							actionListener="#{resmanager.crearReserva(habitacion,habbuscmanager.habitacionBusquedaForma.fechaEntrada,habbuscmanager.habitacionBusquedaForma.fechaSalida)}"
+							oncomplete="PF('dlg1').show();"
+							rendered="#{empty clienteHabitualSession}" />
+
+						<p:commandButton value="Reservar"
+							actionListener="#{resmanager.crearReserva(habitacion,habbuscmanager.habitacionBusquedaForma.fechaEntrada,habbuscmanager.habitacionBusquedaForma.fechaSalida)}"
+							action="/clihab/clientHabitualEdit?faces-redirect=true"
+							rendered="#{not empty clienteHabitualSession}" />
+					</h:form>
+				</h:column>
+
+			</h:dataTable>
+			
+			<h:form class="button-back">
+				<h:commandButton action="/index" styleClass="login-submit navi padding-margin"
+					image="/resources/images/arrow-back.png"  />
+			</h:form>
+
+			<h:form>
+
+				<p:dialog id="dialog" header="Introduzca su DNI" widgetVar="dlg1"
+					minHeight="120" width="220" resizable="false">
+					<h:panelGrid columns="1" cellpadding="5" id="grid">
+
+						<!-- poner luego autocomplete="off" -->
+
+						<p:inputText id="clientDNI" value="#{climanager.cliente.dni}"
+							required="true">
+							<f:validateRegex pattern="[0-9]{8}[A-Z]{1}" />
+						</p:inputText>
+
+						<p:commandButton action="#{controllerManager.comprobarDNI}"
+							value="Ok" icon="ui-icon-check" update="grid"
+							validateClient="true" />
+						<p:message for="clientDNI" />
+
+					</h:panelGrid>
+				</p:dialog>
+
+			</h:form>
+
+		</ui:define>
+
+	</ui:composition>

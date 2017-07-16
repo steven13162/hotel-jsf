@@ -1,0 +1,124 @@
+<ui:composition template="/template/commonLayout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+	<ui:define name="title">Reserva del cliente:</ui:define>
+
+	<ui:define name="content">
+
+		<h3>clientEdit.xhtml - Información de la reserva del cliente:</h3>
+
+		<h:outputText value="No existe el cliente o/y la reserva!"
+			rendered="#{empty climanager.cliente.dni
+	 	or empty resmanager.reserva.habitacion
+		or empty resmanager.reserva.fechaInicio
+	 	or empty resmanager.reserva.fechaFinal
+	 	or empty resmanager.reserva.importe
+	  	or not empty clienteHabitualSession}" />
+
+		<h:panelGrid
+			rendered="#{not empty climanager.cliente.dni
+	 	and not empty resmanager.reserva.habitacion
+		and not empty resmanager.reserva.fechaInicio
+	 	and not empty resmanager.reserva.fechaFinal
+	 	and not empty resmanager.reserva.importe
+	  	and empty clienteHabitualSession}">
+
+			<h:panelGrid columns="2" styleClass="order-table">
+	
+		Fecha de Entrada:
+		<h:outputText value="#{resmanager.reservaInfo.fechaInicio}" />
+
+		Fecha de Salida:
+		<h:outputText value="#{resmanager.reservaInfo.fechaFinal}" />
+
+		Número de habitacion:
+		<h:outputText
+					value="#{resmanager.reservaInfo.habitacion.numeroHabitacion}" />
+				
+		Tipo de habitacion:
+		<h:outputText
+					value="#{resmanager.reservaInfo.habitacion.tipoHabitacion.tipo}" />
+
+		Importe total:
+		<h:outputText value="#{resmanager.reservaInfo.importe}" />
+
+			</h:panelGrid>
+
+			<div class="messagecolor">
+				<h:messages showSummary="true" showDetail="false"
+					errorClass="error-messages" infoClass="info-messages" />
+			</div>
+
+			<h:form id="clientForm">
+
+				<h3>
+					Información del cliente:<br></br>
+				</h3>
+				<h:panelGrid columns="2" styleClass="order-table"
+					headerClass="order-table-header"
+					rowClasses="order-table-odd-row,order-table-even-row">
+
+					<h:outputLabel for="nombre">Nombre:</h:outputLabel>
+					<h:inputText value="#{climanager.cliente.nombre}" id="nombre"
+						pt:type="text" size="20" required="true"
+						requiredMessage="Error: introduzca el nombre" />
+
+					<h:outputLabel for="apellidos">Apellidos:</h:outputLabel>
+					<h:inputText value="#{climanager.cliente.apellidos}" id="apellidos"
+						pt:type="text" size="20" required="true"
+						requiredMessage="Error: introduzca los apellidos" />
+
+					<h:outputLabel for="direccion">Direccion:</h:outputLabel>
+					<h:inputText value="#{climanager.cliente.direccion}" id="direccion"
+						pt:type="text" size="40" required="true"
+						requiredMessage="Error: introduzca la direccion" />
+
+					<h:outputLabel for="dni">DNI:</h:outputLabel>
+					<h:inputText value="#{climanager.cliente.dni}" id="dni"
+						pt:type="text" size="15" required="true" pt:disabled="disabled" />
+
+					<h:outputLabel for="email">Email:</h:outputLabel>
+					<h:inputText value="#{climanager.cliente.email}" id="email"
+						pt:type="email" size="20" required="true"
+						requiredMessage="Error: introduzca el email" />
+
+					<h:outputLabel for="numeroMovil">Número de Movil:</h:outputLabel>
+					<h:inputText value="#{climanager.cliente.numeroMovil}"
+						id="numeroMovil" pt:type="text" size="20" required="true"
+						requiredMessage="Error: introduzca el número Movil" />
+
+					<h:outputLabel for="numeroTarjeta">Número de Tarjeta</h:outputLabel>
+					<h:inputText value="#{climanager.cliente.numeroTarjeta}"
+						id="numeroTarjeta" pt:type="text" size="16" required="true"
+						requiredMessage="Error: introduzca el número Tarjeta" />
+
+					<h:outputLabel for="cobrarReserva">Cóbrame ahora</h:outputLabel>
+					<h:selectBooleanCheckbox id="cobrarReserva"
+						value="#{resmanager.cobrarReserva}" />
+
+					<h:commandButton
+						action="#{controllerManager.registrarClienteHabitual}"
+						styleClass="login-submit padding-margin" value="Darse de alta!" />
+
+					<h:commandButton action="#{controllerManager.reservar}"
+						styleClass="login-submit navi padding-margin"
+						value="Reservar habitación" />
+
+				</h:panelGrid>
+
+			</h:form>
+
+			<h:outputLink value="index.xhtml"
+				styleClass="login-submit logout padding-margin">
+				Otra búsqueda
+			</h:outputLink>
+
+		</h:panelGrid>
+
+	</ui:define>
+
+</ui:composition>

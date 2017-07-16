@@ -1,0 +1,55 @@
+<ui:composition template="/template/commonLayout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+	<ui:define name="title">Información de la reserva:</ui:define>
+
+	<ui:define name="content">
+
+		<h3>reserveInfo.xhtml - Información de la reserva:</h3>
+
+		<h:outputText value="No existe la reserva pendiente!"
+			rendered="#{empty resmanager.reservaInfo.habitacion}" />
+
+		<h:panelGrid columns="2" styleClass="order-table reservainfo"
+			rendered="#{not empty resmanager.reservaInfo.habitacion}">
+	
+		Fecha de Entrada:
+		<h:outputText value="#{resmanager.reservaInfo.fechaInicio}" />
+
+		Fecha de Salida:
+		<h:outputText value="#{resmanager.reservaInfo.fechaFinal}" />
+
+		Número de habitacion:
+		<h:outputText
+				value="#{resmanager.reservaInfo.habitacion.numeroHabitacion}" />
+				
+		Tipo de habitacion:
+		<h:outputText
+				value="#{resmanager.reservaInfo.habitacion.tipoHabitacion.tipo}" />
+
+		<h:panelGrid columns="2">
+			Importe total
+				<span jsf:rendered="#{empty resmanager.reservaInfo.promocion}"
+				class="red">(con el descuento
+				#{clihabmanager.clienteHabitual.descuento}%):</span>
+
+				<span jsf:rendered="#{not empty resmanager.reservaInfo.promocion}"
+				class="red">(promoción):</span>
+		</h:panelGrid>
+
+			<h:outputText value="#{resmanager.reservaInfo.importe}" />
+
+		</h:panelGrid>
+
+		<div class="messagecolor">
+			<h:messages showSummary="true" showDetail="false"
+				errorClass="error-messages" infoClass="info-messages" />
+		</div>
+
+	</ui:define>
+
+</ui:composition>
