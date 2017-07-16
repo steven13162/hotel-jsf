@@ -31,19 +31,31 @@
 		<h:outputText
 				value="#{resmanager.reservaInfo.habitacion.tipoHabitacion.tipo}" />
 
-		<h:panelGrid columns="2">
+			<h:panelGrid columns="2"
+				rendered="#{not empty clienteHabitualSession}">
 			Importe total
 				<span jsf:rendered="#{empty resmanager.reservaInfo.promocion}"
-				class="red">(con el descuento
-				#{clihabmanager.clienteHabitual.descuento}%):</span>
+					class="red">(con el descuento
+					#{clihabmanager.clienteHabitual.descuento}%):</span>
 
 				<span jsf:rendered="#{not empty resmanager.reservaInfo.promocion}"
-				class="red">(promoción):</span>
-		</h:panelGrid>
+					class="red">(promoción):</span>
+			</h:panelGrid>
 
+			<h:panelGrid columns="2" rendered="#{empty clienteHabitualSession}">
+			Importe total
 			<h:outputText value="#{resmanager.reservaInfo.importe}" />
 
+			</h:panelGrid>
+
 		</h:panelGrid>
+
+		<h:form>
+			<h:outputLink value="/project-hotel/index.xhtml"
+				styleClass="login-submit logout padding-margin">
+						Otra búsqueda
+			</h:outputLink>
+		</h:form>
 
 		<div class="messagecolor">
 			<h:messages showSummary="true" showDetail="false"
