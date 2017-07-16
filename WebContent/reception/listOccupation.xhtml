@@ -1,0 +1,47 @@
+<ui:composition template="/template/receptionLayout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+	<ui:define name="title">Reservas Hoteleras - Entorno de Gestión</ui:define>
+
+	<ui:define name="content">
+
+		<h3>/reception/listOccupation.xhtml - Lista de ocupacion del
+			Hotel en "#{recepcion.mostarFechaEnXHTML(recepcion.dateOcupacion)}":</h3>
+
+		<div class="messagecolor">
+			<h:messages showSummary="true" showDetail="false"
+				errorClass="error-messages" infoClass="info-messages" />
+		</div>
+
+		<h:outputText class="error-messages"
+			value="No hay informacion sobre la ocupación del Hotel!"
+			rendered="#{empty recepcion.listaOcupacion}" />
+
+		<h:dataTable value="#{recepcion.listaOcupacion.entrySet().toArray()}"
+			var="entry" rendered="#{not empty recepcion.listaOcupacion}"
+			styleClass="order-table reservainfo" headerClass="order-table-header"
+			rowClasses="order-table-odd-row,order-table-even-row">
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Tipo Habitación" />
+				</f:facet>
+				<h:outputText value="#{entry.key}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Disponibles" />
+				</f:facet>
+				<h:outputText value="#{entry.value}" />
+			</h:column>
+
+		</h:dataTable>
+
+	</ui:define>
+
+</ui:composition>

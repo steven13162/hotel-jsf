@@ -1,0 +1,32 @@
+<ui:composition template="/template/receptionLayout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+	<ui:define name="title">Reservas Hoteleras - Entorno de Gestión</ui:define>
+
+	<ui:define name="content">
+
+		<h3>/reception/consultEarnings.xhtml - Las ganancias del Hotel
+			en "#{recepcion.mostarMesGananciasEnXHTML()}":</h3>
+
+		<div class="messagecolor">
+			<h:messages showSummary="true" showDetail="false"
+				errorClass="error-messages" infoClass="info-messages" />
+		</div>
+
+		<h:outputText class="error-messages"
+			value="No hay informacion sobre lasganancias del Hotel!"
+			rendered="#{empty recepcion.gananciasPorMes}" />
+
+		<h:panelGrid style="min-width:300px" columns="2" rendered="#{not empty recepcion.gananciasPorMes}">
+			Las Ganancias:
+		<h:outputText style="font-weight:bold"
+				value="#{recepcion.gananciasPorMes}€" />
+		</h:panelGrid>
+
+	</ui:define>
+
+</ui:composition>

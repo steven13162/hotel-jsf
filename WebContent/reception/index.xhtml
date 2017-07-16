@@ -1,0 +1,94 @@
+<ui:composition template="/template/receptionLayout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="title">Reservas Hoteleras - Entorno de Gestión</ui:define>
+
+	<ui:define name="content">
+
+		<div class="messagecolor">
+			<h:messages showSummary="true" showDetail="false"
+				errorClass="error-messages" infoClass="info-messages" />
+		</div>
+
+		<h3 class="recepcion blue">El Entorno de Gestión para los
+			recepcionistas.</h3>
+
+		<h:form>
+			<h:commandButton action="/listReceptionists.xhtml"
+				styleClass="login-submit" value="Ver la lista de los recepcionistas" />
+		</h:form>
+
+		<h3 class="recepcion">Operaciones de gestión disponibles:</h3>
+
+		<h:form class="recepcion-operaciones-form">
+			<h:panelGroup>
+				<p:calendar value="#{recepcion.dateVencidas}"
+					maxdate="#{recepcion.dateToday()}" required="true"
+					pt:placeholder="Fecha determinada" />
+
+				<h:commandButton
+					styleClass="login-submit userlink inline padding-margin right"
+					action="#{recepcion.mostrarReservasVencidas}"
+					value="Reservas vencidas" />
+			</h:panelGroup>
+		</h:form>
+
+		<h:form class="recepcion-operaciones-form">
+			<h:panelGroup>
+				<p:calendar value="#{recepcion.dateOcupacion}"
+					mindate="#{recepcion.dateToday()}" required="true"
+					pt:placeholder="Fecha determinada" />
+
+				<h:commandButton
+					styleClass="login-submit userlink inline padding-margin right"
+					action="#{recepcion.mostrarOcupacion}" value="Ocupación del hotel" />
+			</h:panelGroup>
+		</h:form>
+
+		<h:form class="recepcion-operaciones-form">
+			<h:panelGroup>
+
+				<h:outputLabel for="mes">Mes:</h:outputLabel>
+				<h:inputText value="#{recepcion.mes}" id="mes" pt:type="number"
+					size="10" required="true"
+					requiredMessage="Error: introduzca el mes"
+					binding="#{monthValidate}" pt:min="1" pt:max="12" />
+
+				<h:outputLabel for="ano">Año:</h:outputLabel>
+				<h:inputText value="#{recepcion.ano}" id="ano" pt:type="number"
+					size="10" required="true"
+					requiredMessage="Error: introduzca el año"
+					pt:min="#{currentDate.year+1900-3}"
+					pt:max="#{currentDate.year+1900}">
+					<f:validator validatorId="dateGananciasValidator" />
+					<f:attribute name="monthValidate" value="#{monthValidate}" />
+					<f:attribute name="dayValidate" value="#{dayValidate}" />
+				</h:inputText>
+
+				<h:commandButton
+					styleClass="login-submit userlink inline padding-margin right"
+					action="#{recepcion.consultarGanancias}"
+					value="Consultar ganancias" />
+			</h:panelGroup>
+		</h:form>
+
+		<h:form class="recepcion-operaciones-form">
+
+			<h:outputLabel for="descuento">Descuento:</h:outputLabel>
+			<h:inputText value="#{recepcion.descuento}" id="descuento" pt:type="number"
+				size="10" required="true" requiredMessage="Error: introduzca el descuento"
+				pt:min="0" pt:max="100" />
+
+			<h:commandButton styleClass="login-submit userlink inline padding-margin right"
+				action="#{recepcion.aplicarDescuento}" value="Aplicar descuento" />
+
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
