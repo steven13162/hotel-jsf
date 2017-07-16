@@ -9,6 +9,7 @@
 		<class>es.uv.etse.bdweb.hotel.domain.ClienteHabitual</class>
 		<class>es.uv.etse.bdweb.hotel.domain.Habitacion</class>
 		<class>es.uv.etse.bdweb.hotel.domain.Promocion</class>
+		<class>es.uv.etse.bdweb.hotel.domain.Recepcionista</class>
 		<class>es.uv.etse.bdweb.hotel.domain.Reserva</class>
 		<class>es.uv.etse.bdweb.hotel.domain.TipoHabitacion</class>
         <properties>
