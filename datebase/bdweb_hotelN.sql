@@ -150,17 +150,17 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `bdweb_hotel`.`recepcionistas`
+-- Table `bdweb_hotel`.`empleados`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `bdweb_hotel`.`recepcionistas` ;
+DROP TABLE IF EXISTS `bdweb_hotel`.`Empleados` ;
 
-CREATE TABLE IF NOT EXISTS `bdweb_hotel`.`recepcionistas` (
-  `recep_id` BIGINT(20) NOT NULL,
-  `recep_nombre` VARCHAR(45) NOT NULL,
-  `recep_apellidos` VARCHAR(45) NOT NULL,
-  `recep_password` VARCHAR(128) NOT NULL,
-  `recep_email` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`recep_id`))
+CREATE TABLE IF NOT EXISTS `bdweb_hotel`.`empleados` (
+  `emple_id` BIGINT(20) NOT NULL,
+  `emple_nombre` VARCHAR(45) NOT NULL,
+  `emple_apellidos` VARCHAR(45) NOT NULL,
+  `emple_password` VARCHAR(128) NOT NULL,
+  `emple_email` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`emple_id`))
 ENGINE = InnoDB;
 
 
